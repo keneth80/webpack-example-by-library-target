@@ -69,8 +69,6 @@ module.exports = {
         new CleanWebpackPlugin({
             root: helpers.root() + '/examples/' + example,
             cleanOnceBeforeBuildPatterns: ['*.js']
-            // build 폴더 안의 모든 것을 지우도록 설정
-            // path.resolve(process.cwd(), 'build/**/*')
         }),
         new HtmlWebPackPlugin({
             inject: true,
