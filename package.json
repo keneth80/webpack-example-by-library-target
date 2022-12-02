@@ -1,0 +1,87 @@
+{
+    "name": "webpack example",
+    "version": "0.0.1",
+    "description": "webpack example by library",
+    "scripts": {
+        "serve": "webpack serve --port 8088",
+        "ex:build:run:item-list": "cross-env NODE_ENV=example MODE=production EXAMPLE=item-list webpack --progress && ttsc && lite-server --baseDir=examples/item-list",
+        "ex:run:item-list": "lite-server --baseDir=examples/item-list",
+        "serve:ex:item-list": "cross-env MODE=development EXAMPLE=item-list webpack-dev-server --stats-error-details --config ./webpack-config/webpack.config.example.js",
+        "open-report": "webpack-bundle-analyzer dist/report/stats.json",
+        "build": "rm -fr dist/* && cross-env NODE_ENV=production webpack && (npm run mjs & npm run cjs)",
+        "cjs": "ttsc -p tsconfig-cjs.json",
+        "mjs": "ttsc -p tsconfig.json"
+    },
+    "author": "pretty9967@naver.com",
+    "license": "ISC",
+    "main": "src/index.ts",
+    "types": "dist/types/index.d.ts",
+    "exports": {
+        ".": {
+            "import": "./dist/mjs/index.js",
+            "require": "./dist/cjs/index.js"
+        },
+        "./core": {
+            "import": "./dist/mjs/core.js",
+            "require": "./dist/cjs/core.js"
+        }
+    },
+    "files": [
+        "dist"
+    ],
+    "sideEffects": false,
+    "typesVersions": {
+        "*": {
+            "core": [
+                "dist/types/core.d.ts"
+            ]
+        }
+    },
+    "devDependencies": {
+        "@babel/core": "^7.4.5",
+        "@babel/preset-env": "^7.4.5",
+        "@babel/preset-typescript": "^7.18.6",
+        "@types/clipboard": "2.0.1",
+        "@types/js-cookie": "^3.0.2",
+        "@types/lodash-es": "^4.17.6",
+        "@types/node": "^18.6.3",
+        "babel-loader": "^8.0.6",
+        "browser-sync-client": "^2.26.6",
+        "clean-webpack-plugin": "^4.0.0",
+        "copy-webpack-plugin": "^5.1.2",
+        "cross-env": "~5.2",
+        "css-loader": "^6.7.1",
+        "favicons": "^7.0.2",
+        "favicons-webpack-plugin": "^6.0.0",
+        "html-webpack-plugin": "^5.5.0",
+        "json-viewer-js": "^1.0.8",
+        "lite-server": "^2.6.1",
+        "mini-css-extract-plugin": "^2.6.1",
+        "style-loader": "^0.23.1",
+        "terser-webpack-plugin": "^5.3.6",
+        "ts-loader": "^9.2.3",
+        "tslib": "^2.4.0",
+        "ttypescript": "^1.5.13",
+        "typescript": "^4.1.5",
+        "typescript-transform-paths": "^3.3.1",
+        "webpack": "^5.22.0",
+        "webpack-bundle-analyzer": "^4.4.2",
+        "webpack-cli": "^4.10.0",
+        "webpack-dev-server": "^4.10.0",
+        "webpack-merge": "^5.7.3"
+    },
+    "dependencies": {
+        "axios": "^0.21.1",
+        "bowser": "^2.11.0",
+        "clipboard": "2.0.4",
+        "deepmerge": "^4.2.2",
+        "inversify": "^5.0.5",
+        "inversify-inject-decorators": "^3.1.0",
+        "js-cookie": "^2.2.1",
+        "lodash-es": "^4.17.21",
+        "moment": "^2.29.1",
+        "reflect-metadata": "^0.1.13",
+        "rxjs": "~6.5.2",
+        "ts-node-dev": "^2.0.0"
+    }
+}

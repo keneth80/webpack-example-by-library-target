@@ -1,0 +1,41 @@
+{
+    "compilerOptions": {
+        // leave JSX as it is
+        // resolve modules as you would expect
+        "moduleResolution": "node",
+        // leave imports as they are
+        "module": "esnext",
+        // do not transpile stuff like classes, async/await, ...
+        "target": "es5",
+        "lib": ["es2015", "es6", "esnext", "dom"],
+        "allowJs": true,
+        // produce a source map
+        "sourceMap": true,
+        "strict": true,
+        "strictNullChecks": false,
+        "strictPropertyInitialization": false,
+        "declaration": true,
+        "declarationDir": "dist/types",
+        "declarationMap": true,
+        // "emitDeclarationOnly": true,
+        "jsx": "preserve",
+        "esModuleInterop": true,
+        "importHelpers": true,
+        "experimentalDecorators": true,
+        "skipLibCheck": true,
+        "allowSyntheticDefaultImports": true,
+        "resolveJsonModule": true,
+        "baseUrl": ".",
+        "outDir": "dist/mjs",
+        "types": ["node", "reflect-metadata"],
+        "plugins": [
+            {"transform": "typescript-transform-paths"},
+            {
+                "transform": "typescript-transform-paths",
+                "afterDeclarations": true
+            }
+        ]
+    },
+    "include": ["./src/**/*"],
+    "exclude": ["tmp", "dist", "./node_modules/**/*"]
+}

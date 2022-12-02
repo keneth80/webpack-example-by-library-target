@@ -1,0 +1,35 @@
+{
+    "compilerOptions": {
+        "moduleResolution": "node",
+        "module": "commonjs",
+        "target": "es5",
+        "lib": ["es2015", "es6", "esnext", "dom"],
+        "allowJs": true,
+        "sourceMap": true,
+        "strict": true,
+        "strictNullChecks": false,
+        "strictPropertyInitialization": false,
+        "declaration": true,
+        "declarationDir": "dist/types",
+        "declarationMap": true,
+        "jsx": "preserve",
+        "esModuleInterop": true,
+        "importHelpers": true,
+        "experimentalDecorators": true,
+        "skipLibCheck": true,
+        "allowSyntheticDefaultImports": true,
+        "resolveJsonModule": true,
+        "baseUrl": ".",
+        "outDir": "dist/cjs",
+        "types": ["node", "reflect-metadata"],
+        "plugins": [
+            {"transform": "typescript-transform-paths"},
+            {
+                "transform": "typescript-transform-paths",
+                "afterDeclarations": true
+            }
+        ]
+    },
+    "include": ["./src/**/*"],
+    "exclude": ["tmp", "dist", "./node_modules/**/*"]
+}
