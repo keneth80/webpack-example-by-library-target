@@ -9,6 +9,8 @@
         "serve:ex:item-list": "cross-env MODE=development EXAMPLE=item-list webpack-dev-server --stats-error-details --config ./webpack-config/webpack.config.example.js",
         "open-report": "webpack-bundle-analyzer dist/report/stats.json",
         "build": "rm -fr dist/* && cross-env NODE_ENV=production webpack && (npm run mjs & npm run cjs)",
+        "build:ms": "rmdir /s /q dist | cross-env NODE_ENV=production webpack | (npm run mjs & npm run cjs)",
+        "build:linux": "rm -fr dist/* && cross-env NODE_ENV=production webpack && (npm run mjs & npm run cjs)",
         "cjs": "ttsc -p tsconfig-cjs.json",
         "mjs": "ttsc -p tsconfig.json"
     },
