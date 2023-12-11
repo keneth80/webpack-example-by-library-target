@@ -6,6 +6,19 @@ const TerserPlugin = require('terser-webpack-plugin');
 const mode = (process.env.MODE || 'development').trim();
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const isHtml = (process.env.IS_HTML || 'N').trim();
+const service = (process.env.SERVICE || '').trim();
+
+const proxy = {};
+
+if (service === 'api') {
+    Object.assign(proxy, {
+        '/api': {
+            target: process.env.APP_API_BASE_URL,
+            changeOrigin: true,
+        },
+    });
+}
 
 module.exports = {
     entry: {
@@ -16,6 +29,9 @@ module.exports = {
     },
     mode: 'development',
     devtool: 'inline-source-map',
+    devServer: {
+        proxy,
+    },
     output: {
         path: helpers.root(`examples/${example}`),
         publicPath: `/`,
