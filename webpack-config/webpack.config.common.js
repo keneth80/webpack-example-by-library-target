@@ -3,7 +3,7 @@ const helpers = require('./helpers');
 
 module.exports = {
     entry: {
-        app: './src/index.ts'
+        app: './src/core/index.ts'
     },
     output: {
         asyncChunks: true,
@@ -22,6 +22,7 @@ module.exports = {
     },
     devtool: 'inline-source-map',
     devServer: {
+        port: 80480,
         writeToDisk: true
     },
     module: {
